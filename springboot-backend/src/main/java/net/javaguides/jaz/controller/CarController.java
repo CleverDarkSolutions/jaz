@@ -1,5 +1,6 @@
 package net.javaguides.jaz.controller;
 
+import com.speedment.jpastreamer.application.JPAStreamer;
 import net.javaguides.jaz.exception.ResourceNotFoundException;
 import net.javaguides.jaz.model.Car;
 import net.javaguides.jaz.repository.CarRepository;
@@ -85,6 +86,6 @@ public class CarController {
 		response.put("deleted", Boolean.TRUE);
 		return ResponseEntity.ok(response);
 	}
-	
+
 	
 }
