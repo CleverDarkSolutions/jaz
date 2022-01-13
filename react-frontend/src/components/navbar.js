@@ -5,18 +5,32 @@ export const MainNavbar = () => {
         <div>
             <Navbar bg="light" expand="lg">
                 <Container>
-                    <Navbar.Brand href="#home">Cars Wiki</Navbar.Brand>
+                    <Navbar.Brand>Cars Wiki</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="#home">Home</Nav.Link>
-                            <Nav.Link href="#link">Link</Nav.Link>
-                            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                            <Nav.Link>Home</Nav.Link>
+                            <Nav.Link>Link</Nav.Link>
+                            <NavDropdown title="Colours" id="basic-nav-dropdown">
+                                <NavDropdown.Item>Red</NavDropdown.Item>
+                                <NavDropdown.Item>Blue</NavDropdown.Item>
+                                <NavDropdown.Item>Green</NavDropdown.Item>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                                <NavDropdown.Item >Random</NavDropdown.Item>
+                            </NavDropdown>
+                            <NavDropdown title="Makes" id="basic-nav-dropdown">
+                                <NavDropdown.Item>BMW</NavDropdown.Item>
+                                <NavDropdown.Item>Porsche</NavDropdown.Item>
+                                <NavDropdown.Item>Audi</NavDropdown.Item>
+                                <NavDropdown.Divider />
+                                <NavDropdown.Item >Random</NavDropdown.Item>
+                            </NavDropdown>
+                            <NavDropdown title="Year" id="basic-nav-dropdown">
+                                <NavDropdown.Item>2000</NavDropdown.Item>
+                                <NavDropdown.Item>2010</NavDropdown.Item>
+                                <NavDropdown.Item>2015</NavDropdown.Item>
+                                <NavDropdown.Divider />
+                                <NavDropdown.Item >Random</NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>
