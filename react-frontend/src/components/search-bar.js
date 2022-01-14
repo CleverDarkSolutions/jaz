@@ -1,7 +1,12 @@
 import {Button, Form, FormControl} from "react-bootstrap";
 import {SearchButtons} from "./search-buttons";
+import {togglePage} from "../store/counterSlice";
+import {useDispatch} from "react-redux";
 
 export const SearchBar = () => {
+
+    const search = () => {
+    }
     const bar = {
         width: '40%',
         marginLeft: '10%'

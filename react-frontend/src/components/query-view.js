@@ -2,25 +2,23 @@ import {Table} from "react-bootstrap";
 import carService from "../services/car-service";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
-import {setQuery} from "../store/counterSlice"
-import axios from "axios";
 
 export const QueryView = (props) => {
 
-    const dispatch = useDispatch();
-    let promise;
+    let cars;
     const [items, setItems] = useState()
     if(props.type === 'model')
-        promise = carService.getCarByModel(props.input)
+        cars = carService.getCarByModel(props.input)
     else if(props.type === 'colour')
-        promise = carService.getCarByColour(props.input)
+        cars = carService.getCarByColour(props.input)
     else if(props.type === 'make')
-        promise = carService.getCarByMake(props.input)
+        cars = carService.getCarByMake(props.input)
     else if(props.type === 'year')
-        promise = carService.getCarByYear(props.input)
+        cars = carService.getCarByYear(props.input)
+    console.log(cars)
 
     useEffect(() =>{
-        axios.get("http://localhost:8080/api/v1/cars")
+        cars
             .then(res => res.data)
             .then(res => {
                     console.log(res)

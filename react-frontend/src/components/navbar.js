@@ -1,6 +1,9 @@
 import {Container, Nav, Navbar, NavDropdown} from "react-bootstrap";
+import {useDispatch} from "react-redux";
+import {togglePage} from "../store/counterSlice";
 
 export const MainNavbar = () => {
+    const dispatch = useDispatch();
     return(
         <div>
             <Navbar bg="light" expand="lg">
@@ -9,8 +12,12 @@ export const MainNavbar = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link>Home</Nav.Link>
-                            <Nav.Link>Link</Nav.Link>
+                            <Nav.Link onClick={ () =>{
+                                dispatch(togglePage(0))
+                            }}>Home</Nav.Link>
+                            <Nav.Link onClick={ () =>{
+                                dispatch(togglePage(1))
+                            }}>Search</Nav.Link>
                             <NavDropdown title="Colours" id="basic-nav-dropdown">
                                 <NavDropdown.Item>Red</NavDropdown.Item>
                                 <NavDropdown.Item>Blue</NavDropdown.Item>

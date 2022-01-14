@@ -10,7 +10,7 @@ const counterSlice = createSlice({
                 show: true,
             },
             {
-                name: 'page1',
+                name: 'queryView',
                 show: false,
             },
             {
@@ -18,18 +18,18 @@ const counterSlice = createSlice({
                 show: false,
             },
         ],
-        query: Promise,
+        queryType: 'make',
     },
     reducers: {
         togglePage(state, action) {
             state.pages.forEach(page => page.show = false);
             state.pages[action.payload].show = true;
         },
-        setQuery(state, action){
-            state.query = action.payload;
-        },
+        setQueryType(state, action) {
+            state.queryType = action.payload;
+        }
     },
 })
 
-export const {togglePage, setQuery} = counterSlice.actions
+export const {togglePage, setQueryType} = counterSlice.actions
 export default counterSlice.reducer
