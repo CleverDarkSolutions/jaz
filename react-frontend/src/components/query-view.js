@@ -7,13 +7,13 @@ export const QueryView = (props) => {
 
     let cars;
     const [items, setItems] = useState()
-    if(props.type === 'model')
+    if(props.type === 'Model')
         cars = carService.getCarByModel(props.input)
-    else if(props.type === 'colour')
+    else if(props.type === 'Colour')
         cars = carService.getCarByColour(props.input)
-    else if(props.type === 'make')
+    else if(props.type === 'Make')
         cars = carService.getCarByMake(props.input)
-    else if(props.type === 'year')
+    else if(props.type === 'Year')
         cars = carService.getCarByYear(props.input)
     console.log(cars)
 

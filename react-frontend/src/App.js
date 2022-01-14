@@ -13,11 +13,13 @@ function App() {
   const storeData = useSelector(state => state.counterSlice);
   const homeSwitch = storeData.pages[0].show;
   const querySwitch = storeData.pages[1].show;
+  const queryType = storeData.queryType;
+  const queryInput = storeData.queryInput;
   return (
     <div className="App">
       <MainNavbar/>
       { homeSwitch && <Home/> }
-      { querySwitch && <QueryView input='red' type='colour'/> }
+      { querySwitch && <QueryView input={queryInput} type={queryType}/> }
     </div>
   );
 }

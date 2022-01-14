@@ -1,5 +1,7 @@
 import {SearchBar} from "./search-bar";
 import {CarOfTheDay} from "./car-of-the-day";
+import {useDispatch} from "react-redux";
+import {setQueryType} from "../store/counterSlice";
 
 export const Home = () => {
     return(

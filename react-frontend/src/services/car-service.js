@@ -6,6 +6,9 @@ class CarService {
     getCars = () => {
         return axios.get(CAR_API_URL);
     }
+    getCarById = (carId) => {
+        return axios.get(CAR_API_URL + '/id/' + carId)
+    }
     getCarByColour = (carColor) => {
         return axios.get(CAR_API_URL + "/color/" + carColor)
     }

@@ -18,7 +18,8 @@ const counterSlice = createSlice({
                 show: false,
             },
         ],
-        queryType: 'make',
+        queryType: 'Make',
+        queryInput: ''
     },
     reducers: {
         togglePage(state, action) {
@@ -27,9 +28,12 @@ const counterSlice = createSlice({
         },
         setQueryType(state, action) {
             state.queryType = action.payload;
+        },
+        setQueryInput(state, action){
+            state.queryInput = action.payload;
         }
     },
 })
 
-export const {togglePage, setQueryType} = counterSlice.actions
+export const {togglePage, setQueryType, setQueryInput} = counterSlice.actions
 export default counterSlice.reducer

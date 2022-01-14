@@ -1,11 +1,27 @@
+import {useEffect, useState} from "react";
+import carService from "../services/car-service";
+
 export const CarDetails = (props) => {
-    const car = {
+    const mockCar = {
         make: 'testmake',
         model: 'testmodel',
         colour: 'testcolour',
         cost: 'testcost',
         year: 'testyear'
     }
+    const [car,setCar] = useState(mockCar)
+    const [blockApi, setBlockApi] = useState(false)
+
+    useEffect(() => {
+        if(blockApi === false) {
+            let min = Math.ceil(1);
+            let max = Math.floor(1000);
+            const randomId = Math.floor(Math.random() * (max - min + 1) + min);
+            carService.getCarById(randomId).then(res => setCar(res.data))
+            setBlockApi(true)
+        }
+    })
+
     const text = {
         float: 'left',
         marginLeft: '40px',
