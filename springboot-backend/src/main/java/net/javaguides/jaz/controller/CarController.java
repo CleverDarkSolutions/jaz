@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/v1")
 public class CarController {
@@ -24,9 +25,10 @@ public class CarController {
 		return carRepository.findAll();
 	}		
 
-	@PostMapping("/cars")
-	public Car createCar(@RequestBody Car car) {
-		return carRepository.save(car);
+	@PostMapping("/cars/add")
+	public ResponseEntity<Car> createCar(@RequestBody Car newCar) {
+		Car car = carRepository.save(newCar);
+		return ResponseEntity.ok(car);
 	}
 
 	@GetMapping("/cars/id/{id}")
@@ -60,7 +62,7 @@ public class CarController {
 		return ResponseEntity.ok(car);
 	}
 	
-	@PutMapping("/cars/{id}")
+	@PutMapping("/cars/update/{id}")
 	public ResponseEntity<Car> updateCar(@PathVariable Long id, @RequestBody Car carDetails){
 		Car car = carRepository.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("Car not exist with id :" + id));

@@ -1,11 +1,13 @@
-import {Table} from "react-bootstrap";
+import {Button, Table} from "react-bootstrap";
 import carService from "../services/car-service";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
+import {setLatestCar, togglePage} from "../store/counterSlice";
 
 export const QueryView = (props) => {
 
     let cars;
+    const dispatch = useDispatch();
     const [items, setItems] = useState()
     if(props.type === 'Model')
         cars = carService.getCarByModel(props.input)
@@ -16,6 +18,11 @@ export const QueryView = (props) => {
     else if(props.type === 'Year')
         cars = carService.getCarByYear(props.input)
     console.log(cars)
+
+    const editCar = (car) => {
+        dispatch(setLatestCar(car))
+        dispatch(togglePage(3))
+    }
 
     useEffect(() =>{
         cars
@@ -31,6 +38,7 @@ export const QueryView = (props) => {
                                 <td>{car.year}</td>
                                 <td>{car.colour}</td>
                                 <td>{car.cost}</td>
+                                <td><Button onClick={() => {editCar(car)}}>Zmien</Button></td>
                             </tr>
                         );
                     }));

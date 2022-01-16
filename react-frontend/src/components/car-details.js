@@ -39,7 +39,7 @@ export const CarDetails = (props) => {
         fontSize: '36px'
     };
     const details = {
-        float: 'left',
+        float: 'center',
         fontSize: '22px',
         marginTop: '20px'
     };

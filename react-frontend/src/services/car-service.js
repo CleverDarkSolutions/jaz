@@ -3,6 +3,12 @@ import axios from 'axios';
 const CAR_API_URL =  "http://localhost:8080/api/v1/cars";
 
 class CarService {
+    createCar = (car) => {
+        return axios.post(CAR_API_URL + '/add/', car)
+    }
+    updateCar = (carId, car) => {
+        return axios.put(CAR_API_URL + '/update/' + carId, car)
+    }
     getCars = () => {
         return axios.get(CAR_API_URL);
     }

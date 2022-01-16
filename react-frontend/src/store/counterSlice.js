@@ -14,12 +14,17 @@ const counterSlice = createSlice({
                 show: false,
             },
             {
-                name: 'page2',
+                name: 'addView',
                 show: false,
             },
+            {
+                name: 'updateView',
+                show: false,
+            }
         ],
         queryType: 'Make',
-        queryInput: ''
+        queryInput: '',
+        latestCar: Object,
     },
     reducers: {
         togglePage(state, action) {
@@ -31,9 +36,12 @@ const counterSlice = createSlice({
         },
         setQueryInput(state, action){
             state.queryInput = action.payload;
+        },
+        setLatestCar(state, action){
+            state.latestCar = action.payload;
         }
     },
 })
 
-export const {togglePage, setQueryType, setQueryInput} = counterSlice.actions
+export const {togglePage, setQueryType, setQueryInput, setLatestCar} = counterSlice.actions
 export default counterSlice.reducer

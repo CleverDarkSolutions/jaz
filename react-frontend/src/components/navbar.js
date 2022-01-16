@@ -18,6 +18,9 @@ export const MainNavbar = () => {
                             <Nav.Link onClick={ () =>{
                                 dispatch(togglePage(1))
                             }}>Search</Nav.Link>
+                            <Nav.Link onClick={ () =>{
+                                dispatch(togglePage(2))
+                            }}>Add</Nav.Link>
                             <NavDropdown title="Colours" id="basic-nav-dropdown">
                                 <NavDropdown.Item onClick={ () =>{
                                     dispatch(setQueryInput('Red'))
