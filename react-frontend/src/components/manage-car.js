@@ -11,13 +11,6 @@ export const ManageCar = (props) => {
     }
     const storeCar = useSelector( state => state.counterSlice.latestCar)
     const [blockCar, setBlockCar] = useState(false)
-    const [carFromStore, setCarFromStore] = useState()
-    useEffect(() => {
-        if(blockCar === false) {
-            setCarFromStore(storeCar)
-            setBlockCar(true)
-        }
-    })
 
     const addOrUpdate = useSelector( state => state.counterSlice.pages[3].show)
     const [make, setMake] = useState('');
@@ -26,13 +19,17 @@ export const ManageCar = (props) => {
     const [colour, setColour] = useState('');
     const [cost, setCost] = useState('');
 
-    if(addOrUpdate === true){
-        setMake(storeCar.make)
-        setModel(storeCar.model)
-        setYear(storeCar.year)
-        setColour(storeCar.colour)
-        setCost(storeCar.cost)
-    }
+    useEffect(() => {
+        if(blockCar === false)
+            if(addOrUpdate === true){
+                setMake(storeCar.make)
+                setModel(storeCar.model)
+                setYear(storeCar.year)
+                setColour(storeCar.colour)
+                setCost(storeCar.cost)
+        }
+            setBlockCar(true)
+    })
 
     const changeCar = () => {
         const car = {
@@ -45,7 +42,7 @@ export const ManageCar = (props) => {
         switch (props.service) {
             case 'update':
                 if(make !== '' && model !== '' && colour !== '' && year !== '' && cost !== '')
-                    carService.updateCar(carFromStore.id,car).then(r => console.log('Success'));
+                    carService.updateCar(storeCar.id,car).then(r => console.log('Success'));
                 break;
             case 'add':
                 if(make !== '' && model !== '' && colour !== '' && year !== '' && cost !== '')

@@ -21,6 +21,7 @@ export const QueryView = (props) => {
 
     const editCar = (car) => {
         dispatch(setLatestCar(car))
+        console.log(car)
         dispatch(togglePage(3))
     }
 
@@ -38,7 +39,7 @@ export const QueryView = (props) => {
                                 <td>{car.year}</td>
                                 <td>{car.colour}</td>
                                 <td>{car.cost}</td>
-                                <td><Button onClick={() => {editCar(car)}}>Zmien</Button></td>
+                                <td><Button onClick={() => {editCar(car)}}>Change</Button></td>
                             </tr>
                         );
                     }));
