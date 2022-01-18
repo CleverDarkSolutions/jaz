@@ -1,7 +1,8 @@
 import {Button, Form} from "react-bootstrap";
 import {useEffect, useState} from "react";
 import carService from "../services/car-service";
-import {useSelector} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
+import {togglePage} from "../store/counterSlice";
 
 export const ManageCar = (props) => {
     const formStyle = {
@@ -9,6 +10,7 @@ export const ManageCar = (props) => {
         marginLeft: '20%',
         textAlign: 'left'
     }
+    const dispatch = useDispatch();
     const storeCar = useSelector( state => state.counterSlice.latestCar)
     const [blockCar, setBlockCar] = useState(false)
 
@@ -50,6 +52,7 @@ export const ManageCar = (props) => {
                 break;
 
         }
+        dispatch(togglePage(0));
     }
 
    return(

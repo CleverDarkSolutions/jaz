@@ -25,6 +25,11 @@ export const QueryView = (props) => {
         dispatch(togglePage(3))
     }
 
+    const deleteCar = (carId) =>{
+        carService.deleteCar(carId).then(r => console.log("Success"))
+        dispatch(togglePage(0))
+    }
+
     useEffect(() =>{
         cars
             .then(res => res.data)
@@ -39,7 +44,8 @@ export const QueryView = (props) => {
                                 <td>{car.year}</td>
                                 <td>{car.colour}</td>
                                 <td>{car.cost}</td>
-                                <td><Button onClick={() => {editCar(car)}}>Change</Button></td>
+                                <td><Button onClick={ () => {editCar(car) }}>Change</Button></td>
+                                <td><Button variant="danger" onClick={ () => {deleteCar(car.id) }}>Delete</Button> </td>
                             </tr>
                         );
                     }));

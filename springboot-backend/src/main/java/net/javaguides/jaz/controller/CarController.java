@@ -78,7 +78,7 @@ public class CarController {
 	}
 	
 	// delete Car rest api
-	@DeleteMapping("/car/{id}")
+	@DeleteMapping("/cars/delete/{id}")
 	public ResponseEntity<Map<String, Boolean>> deleteCar(@PathVariable Long id){
 		Car car = carRepository.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("Car not exist with id :" + id));

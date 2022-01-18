@@ -9,6 +9,9 @@ class CarService {
     updateCar = (carId, car) => {
         return axios.put(CAR_API_URL + '/update/' + carId, car)
     }
+    deleteCar = (carId) => {
+        return axios.delete( CAR_API_URL + '/delete/' + carId)
+    }
     getCars = () => {
         return axios.get(CAR_API_URL);
     }
